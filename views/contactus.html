@@ -15,34 +15,36 @@
           <div class="space"></div>
           <p><i class="fa fa-phone fa-fw pull-left fa-2x"></i>+1 800 123 1234</p>
         </div>
-        <div class="col-md-8 col-sm-8 marb20">
-          <div class="contact-info">
-            <h3 class="cnt-ttl">Having Any Query! Or Book an appointment</h3>
-            <div class="space"></div>
-            <div id="sendmessage">Your message has been sent. Thank you!</div>
-            <div id="errormessage"></div>
-            <form action="" method="post" role="form" class="contactForm">
-              <div class="form-group">
-                <input type="text" name="name" class="form-control br-radius-zero" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control br-radius-zero" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validation"></div>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control br-radius-zero" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                <div class="validation"></div>
-              </div>
+        <div ng-controller="customerMessageController as vm">
+          <div class="col-md-8 col-sm-8 marb20">
+            <div class="contact-info">
+              <h3 class="cnt-ttl">Having Any Query! Or Book an appointment</h3>
+              <div class="space"></div>
+              <div id="sendmessage">Your message has been sent. Thank you!</div>
+              <div id="errormessage"></div>
+              <form role="form" class="contactForm">
+                <div class="form-group">
+                  <input type="text" name="name" ng-model="vm.customerMessage.name" class="form-control br-radius-zero" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="email" ng-model="vm.customerMessage.email" class="form-control br-radius-zero" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" ng-model="vm.customerMessage.subject" class="form-control br-radius-zero" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control br-radius-zero" name="message" ng-model="vm.customerMessage.message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validation"></div>
+                </div>
 
-              <div class="form-action">
-                <button type="submit" class="btn btn-form">Send Message</button>
-              </div>
-            </form>
+                <div class="form-action">
+                  <button type="submit" class="btn btn-form" ng-click="vm.addMessage()">Send Message</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
